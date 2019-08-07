@@ -5,6 +5,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import pl.kf.sportstore.model.user.Address;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -13,10 +14,11 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(unique = true)
     private String username;
     private String password;
-    @ElementCollection
-    private List<String> roles;
+    @ElementCollection(fetch = FetchType.EAGER)
+    private List<String> roles = new ArrayList<>();
     private boolean isEnabled = true;
     private String firstName;
     private String lastName;
@@ -94,12 +96,9 @@ public class User {
         this.address = address;
     }
 
-    public User(Long id, String username, String password, /*List<String> roles,*/ boolean isEnabled, String firstName, String lastName, Address address) {
-        this.id = id;
+    public User(String username, String password, String firstName, String lastName, Address address) {
         this.username = username;
         this.password = passwordEncoder().encode(password);
-        /*this.roles = roles;*/
-        this.isEnabled = isEnabled;
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -117,5 +116,9 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", address=" + address +
                 '}';
+    }
+
+    public void addNewRole(String role){
+        this.roles.add(role);
     }
 }

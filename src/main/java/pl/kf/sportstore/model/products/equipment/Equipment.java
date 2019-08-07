@@ -17,8 +17,11 @@ public class Equipment extends Product {
     private String name;
     private String description;
 
-    public Equipment(String mark, String model, Discipline discipline, Double price, Integer quantityInStock) {
-        super(mark, model, discipline, price, quantityInStock);
+    public Equipment(String mark, String model, Discipline discipline, Double price, String imageUrl, Integer quantityInStock,
+                     String name, String description) {
+        super(mark, model, discipline, price, imageUrl, quantityInStock);
+        this.name = name;
+        this.description = description;
     }
 
     public Equipment() {

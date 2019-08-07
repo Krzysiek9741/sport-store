@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import pl.kf.sportstore.model.products.Discipline;
 import pl.kf.sportstore.model.products.cloth.Cloth;
 import pl.kf.sportstore.model.products.cloth.ClothSize;
@@ -14,8 +15,10 @@ import pl.kf.sportstore.model.user.User;
 import pl.kf.sportstore.repository.AddressRepository;
 import pl.kf.sportstore.repository.ClothRepository;
 import pl.kf.sportstore.repository.UserRepository;
+import pl.kf.sportstore.service.UserService;
 
 @SpringBootApplication
+@EnableJpaRepositories
 public class SportStoreApplication implements CommandLineRunner {
 
     @Autowired
@@ -27,6 +30,9 @@ public class SportStoreApplication implements CommandLineRunner {
     @Autowired
     ClothRepository clothRepository;
 
+    @Autowired
+    UserService userService;
+
     public static void main(String[] args) {
         SpringApplication.run(SportStoreApplication.class, args);
 
@@ -34,18 +40,23 @@ public class SportStoreApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        Address address = new Address(1L, "Kozłowa", 28, 15868, "Białystok");
-        User user = new User(1L, "kfalk", "kfalk", true, "Krzysztof", "Falkowski", address);
+        //Address address = new Address(1L, "Kozłowa", 28, 15868, "Białystok");
+        //User user = new User(1L, "kfalk", "kfalk", true, "Krzysztof", "Falkowski", address);
         //System.out.println(user);
-        addressRepository.save(address);
-        userRepository.save(user);
+        //user.addNewRole("ADMIN");
+        //addressRepository.save(address);
+        //userRepository.save(user);
 
-        Cloth tShirt = new Cloth("Nike", "Best001", Discipline.FOOTBALL, 99.99D, 11);
-        tShirt.setClothSize(ClothSize.L);
-        tShirt.setClothType(ClothType.T_SHIRT);
-        clothRepository.save(tShirt);
+
+        //Cloth tShirt = new Cloth("Nike", "Best001", Discipline.FOOTBALL, 99.99D, 11);
+        //tShirt.setClothSize(ClothSize.L);
+        //tShirt.setClothType(ClothType.T_SHIRT);
+        //clothRepository.save(tShirt);
         //System.out.println(tShirt);
 
         //System.out.println(tShirt.getDiscipline().toString());
+
+        //userService.createNewUser("useradmin", "useradmin", null, null,
+                //"Kozłowa", 28, 15868, "Białystok");
     }
 }

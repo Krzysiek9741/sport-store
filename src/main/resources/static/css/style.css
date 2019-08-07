@@ -1,0 +1,52 @@
+body, html {
+    height: 100%;
+}
+.bg {
+    /* The image used */
+    background-image: url("https://i.pinimg.com/originals/66/fe/3f/66fe3fb9d3f51c1a781d45a32ab39935.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+}
+
+#lab1, #lab2{
+    font-size: 30px;
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+}
+
+.lab2{
+    font-size: 25px;
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-color: black;
+    width: 200px;
+    padding-right: 30px;
+    display: inline-block;
+}
+
+footer {
+    position: relative;
+    height: 10px;
+    margin-top: -10px;
+    clear: both;
+}
+
+.container {
+    min-height: 100%;
+}

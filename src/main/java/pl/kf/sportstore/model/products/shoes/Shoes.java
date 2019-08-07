@@ -17,8 +17,10 @@ public class Shoes extends Product {
     private Short shoesSize;
 
 
-    public Shoes(String mark, String model, Discipline discipline, Double price, Integer quantityInStock) {
-        super(mark, model, discipline, price, quantityInStock);
+    public Shoes(String mark, String model, Discipline discipline, Double price, String imageUrl, Integer quantityInStock,
+                 Short shoesSize) {
+        super(mark, model, discipline, price, imageUrl, quantityInStock);
+        this.shoesSize = shoesSize;
     }
 
     public Shoes() {

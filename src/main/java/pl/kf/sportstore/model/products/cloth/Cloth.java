@@ -16,8 +16,11 @@ public class Cloth extends Product {
     @Enumerated(EnumType.STRING)
     private ClothSize clothSize;
 
-    public Cloth(String mark, String model, Discipline discipline, Double price, Integer quantityInStock) {
-        super(mark, model, discipline, price, quantityInStock);
+    public Cloth(String mark, String model, Discipline discipline, Double price, String imageUrl, Integer quantityInStock,
+                 ClothType clothType, ClothSize clothSize) {
+        super(mark, model, discipline, price, imageUrl, quantityInStock);
+        this.clothType = clothType;
+        this.clothSize = clothSize;
     }
 
     public Cloth() {

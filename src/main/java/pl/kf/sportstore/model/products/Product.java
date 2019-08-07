@@ -14,16 +14,18 @@ public abstract class Product {
     @Enumerated(EnumType.STRING)
     private Discipline discipline;
     private Double price;
+    private String imageUrl;
     private Integer quantityInStock;
 
     public Product() {
     }
 
-    public Product(String mark, String model, Discipline discipline, Double price, Integer quantityInStock) {
+    public Product(String mark, String model, Discipline discipline, Double price, String imageUrl, Integer quantityInStock) {
         this.mark = mark;
         this.model = model;
         this.discipline = discipline;
         this.price = price;
+        this.imageUrl = imageUrl;
         this.quantityInStock = quantityInStock;
     }
 
@@ -57,6 +59,14 @@ public abstract class Product {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public Integer getQuantityInStock() {

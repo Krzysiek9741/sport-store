@@ -59,8 +59,7 @@ public class Address {
         this.city = city;
     }
 
-    public Address(Long id, String street, Integer houseNumber, Integer zipCode, String city) {
-        this.id = id;
+    public Address(String street, Integer houseNumber, Integer zipCode, String city) {
         this.street = street;
         this.houseNumber = houseNumber;
         this.zipCode = zipCode;
