@@ -48,7 +48,7 @@
                     <li class="nav-item">
                         <form method="post" action="${path}/logout" id="logoutForm">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
-                            <a class="nav-link" onclick="document.forms['logoutForm'].submit()">Logout</a>
+                            <a class="nav-link" href="" onclick="document.forms['logoutForm'].submit()">Logout</a>
                         </form>
                     </li>
                 </c:if>

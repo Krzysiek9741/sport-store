@@ -6,29 +6,31 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import pl.kf.sportstore.model.products.cloth.Cloth;
 import pl.kf.sportstore.model.user.Address;
 import pl.kf.sportstore.model.user.User;
+import pl.kf.sportstore.service.ProductService;
 import pl.kf.sportstore.service.UserService;
 
-import java.util.Map;
+import java.util.*;
 
 @Controller
 public class UserController {
 
     UserService userService;
 
+    ProductService productService;
+
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, ProductService productService) {
         this.userService = userService;
+        this.productService = productService;
     }
 
 
 
 
-    @GetMapping("/")
-    public String index(){
-        return "index";
-    }
+
 
     @GetMapping("/newProduct")
     public String addNewProduct(){

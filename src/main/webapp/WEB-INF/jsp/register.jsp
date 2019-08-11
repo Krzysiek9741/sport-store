@@ -66,7 +66,8 @@
                     <label for="houseNumber" class="lab2">House number</label>
                 </div>
                 <div class="col-xs-4">
-                    <input type="text" class="form-control" id="houseNumber" placeholder="House number" name="houseNumber">
+                    <input type="text" class="form-control" id="houseNumber" placeholder="House number"
+                           name="houseNumber">
                 </div>
             </div>
             <div class="form-group row">
@@ -92,15 +93,8 @@
         </form>
 
 
-
-
     </div>
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white"><a href="admin">Copyright &copy; Krzysztof Falkowski 2019</a></p>
-        </div>
-        <!-- /.container -->
-    </footer>
+    <jsp:include page="footer.jsp"></jsp:include>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

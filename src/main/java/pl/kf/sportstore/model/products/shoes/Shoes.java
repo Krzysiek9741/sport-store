@@ -26,6 +26,14 @@ public class Shoes extends Product {
     public Shoes() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public Short getShoesSize() {
         return shoesSize;
     }

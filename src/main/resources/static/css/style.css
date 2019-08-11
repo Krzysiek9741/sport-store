@@ -29,6 +29,22 @@ h1 {
     -webkit-text-stroke-color: black;
 }
 
+#buy{
+    font-size: 30px;
+    text-align: center;
+    width: 240px;
+}
+
+
+
+#buyDiv {
+    width: 240px; /*can be in percentage also.*/
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
 .lab2{
     font-size: 25px;
     color: black;

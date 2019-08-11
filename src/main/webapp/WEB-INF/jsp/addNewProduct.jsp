@@ -6,7 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <c:set var="path" value="${pageContext.request.contextPath}"/>
 <html>
 <head>
@@ -17,16 +17,18 @@
     <jsp:include page="menu.jsp"></jsp:include>
     <div class="container">
 
+        <jsp:include page="adminMenu.jsp"></jsp:include>
+
         <form method="POST" action="${path}/login">
             <p style="color: red">${error}</p>
             <p style="color: green">${message}</p>
             <div class="form-group">
                 <label for="username" id="lab1">Enter username</label>
-                <input type="text" class="form-control" id="username" size="15px" placeholder="Username" name="username">
+                <input type="text" class="form-control" id="username" placeholder="Username" name="username">
             </div>
             <div class="form-group">
                 <label for="password" id="lab2">Enter password</label>
-                <input type="password" class="form-control" id="password" size="35" placeholder="Password" name="password">
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
             </div>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
@@ -44,12 +46,7 @@
         </form>--%>
 
     </div>
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white"><a href="admin">Copyright &copy; Krzysztof Falkowski 2019</a></p>
-        </div>
-        <!-- /.container -->
-    </footer>
+    <jsp:include page="footer.jsp"></jsp:include>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
