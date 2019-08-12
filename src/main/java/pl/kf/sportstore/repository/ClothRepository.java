@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface ClothRepository extends JpaRepository<Cloth, Long> {
 
-
+    Cloth findClothById(Long id);
 }

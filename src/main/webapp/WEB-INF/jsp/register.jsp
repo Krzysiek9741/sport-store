@@ -16,7 +16,7 @@
 <div class="bg">
     <jsp:include page="menu.jsp"></jsp:include>
     <div class="container" style="text-align: center">
-
+<div id="reg">
         <form method="POST" action="${path}/register">
             <p style="color: red">${error}</p>
             <p style="color: green">${message}</p>
@@ -87,11 +87,10 @@
                 </div>
             </div>
 
-            <%--<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">--%>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-            <button type="submit" class="btn btn-primary">Register</button>
+            <button type="submit" class="btn btn-primary" style="font-size: 20px">Register</button>
         </form>
-
+</div>
 
     </div>
     <jsp:include page="footer.jsp"></jsp:include>

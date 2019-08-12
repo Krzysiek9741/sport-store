@@ -21,6 +21,16 @@ h1 {
     -webkit-text-stroke-color: black;
 }
 
+h2 {
+    color: black;
+    -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: black;
+    font-size: 75px;
+    text-align: center;
+    padding-top: 100px;
+}
+
 #lab1, #lab2{
     font-size: 30px;
     color: black;
@@ -33,6 +43,14 @@ h1 {
     font-size: 30px;
     text-align: center;
     width: 240px;
+}
+
+#reg{
+    width: 480px; /*can be in percentage also.*/
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
 }
 
 

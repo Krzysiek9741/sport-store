@@ -7,9 +7,11 @@
 --%>
 <div class="col-lg-3">
 
+    <h1 class="my-4">PODLASIE</h1>
     <div class="list-group">
         <a href="#" class="list-group-item">Add new product</a>
         <a href="#" class="list-group-item">Change inventory</a>
         <a href="#" class="list-group-item">Manage orders</a>
     </div>
+
 </div>

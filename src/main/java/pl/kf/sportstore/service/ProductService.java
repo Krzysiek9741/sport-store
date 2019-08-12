@@ -3,6 +3,7 @@ package pl.kf.sportstore.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import pl.kf.sportstore.model.products.Discipline;
+import pl.kf.sportstore.model.products.Product;
 import pl.kf.sportstore.model.products.cloth.Cloth;
 import pl.kf.sportstore.model.products.cloth.ClothSize;
 import pl.kf.sportstore.model.products.cloth.ClothType;
@@ -12,6 +13,7 @@ import pl.kf.sportstore.repository.ClothRepository;
 import pl.kf.sportstore.repository.EquipmentRepository;
 import pl.kf.sportstore.repository.ShoesRepository;
 
+import javax.persistence.EntityNotFoundException;
 import java.util.*;
 
 @Service
@@ -92,7 +94,7 @@ public class ProductService {
         return equipmentToShow;
     }
 
-    private List<Integer> generateRandom(List list){
+    private List<Integer> generateRandom(List list) {
         Random random = new Random();
         Set<Integer> randomInts = new HashSet<>();
         int setSize = randomInts.size();
@@ -107,15 +109,34 @@ public class ProductService {
         return randomIntsList;
     }
 
-    public Cloth getClothById(Long id){
-       return clothRepository.getOne(id);
+    public Cloth getClothById(Long id) {
+        return clothRepository.getOne(id);
     }
 
-    public Shoes getShoesById(Long id){
+    public Shoes getShoesById(Long id) {
         return shoesRepository.getOne(id);
     }
 
-    public Equipment getEquipmentById(Long id){
+    public Equipment getEquipmentById(Long id) {
         return equipmentRepository.getOne(id);
+    }
+
+    public Product getProductById(Long id, String prodType) {
+        Product product = null;
+        if (prodType.equals("cloth")) {
+            product = getClothById(id);
+            return product;
+        }
+        if (prodType.equals("shoes")) {
+            product = getShoesById(id);
+            return product;
+        }
+
+        if (prodType.equals("equipment")) {
+            product = getEquipmentById(id);
+            return product;
+        }
+
+        return product;
     }
 }

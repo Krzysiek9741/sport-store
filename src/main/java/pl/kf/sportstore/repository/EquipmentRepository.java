@@ -6,4 +6,6 @@ import pl.kf.sportstore.model.products.equipment.Equipment;
 
 @Repository
 public interface EquipmentRepository extends JpaRepository<Equipment, Long> {
+
+    Equipment findEquipmentById(Long id);
 }

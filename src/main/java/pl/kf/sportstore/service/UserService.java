@@ -38,8 +38,16 @@ public class UserService implements UserDetailsService {
 
     }
 
+    public User getUserById(Long id){
+        return userRepository.getOne(id);
+    }
+
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return new UserDetailsImpl(userRepository.findUserByUsername(s));
+    }
+
+    public User getUserByUsername(String username){
+        return userRepository.findUserByUsername(username);
     }
 }

@@ -53,9 +53,14 @@
                         </c:if>
                         <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                         4.0 stars
+                        <form method="post" action="/addToCart">
                         <div id="buyDiv">
-                        <br><a class="btn btn-primary" href="#" role="button" id="buy">Buy</a><br>
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                            <input type="hidden" class="form-control" name="prodType" value="${requestScope.type}">
+                            <input type="hidden" class="form-control" name="prodId" value="${requestScope.product.id}">
+                        <br><button class="btn btn-primary" type="submit" id="buy">Add to cart</button><br>
                         </div>
+                        </form>
                     </div>
                 </div>
 
