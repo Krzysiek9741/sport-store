@@ -58,7 +58,7 @@
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
                             <input type="hidden" class="form-control" name="prodType" value="${requestScope.type}">
                             <input type="hidden" class="form-control" name="prodId" value="${requestScope.product.id}">
-                        <br><button class="btn btn-primary" type="submit" id="buy">Add to cart</button><br>
+                        <br><button class="btn btn-success" type="submit" id="buy">Add to cart</button><br>
                         </div>
                         </form>
                     </div>

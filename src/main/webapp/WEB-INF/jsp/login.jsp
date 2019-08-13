@@ -32,7 +32,7 @@
             </div>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
 
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn btn-success">Login</button>
         </form>
         <h1><a style="font-size: 30px" href="register">Register</a></h1>
 
