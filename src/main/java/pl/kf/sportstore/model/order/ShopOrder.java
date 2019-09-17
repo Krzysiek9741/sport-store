@@ -8,7 +8,9 @@ import pl.kf.sportstore.model.user.User;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Entity
 public class ShopOrder {
@@ -18,16 +20,28 @@ public class ShopOrder {
     private Long id;
     @ManyToOne
     private User customer;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Cloth> clothes = new ArrayList<>();
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Shoes> shoes = new ArrayList<>();
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Equipment> equipment = new ArrayList<>();
+    @ElementCollection
+    @CollectionTable(name = "order_cloth_mapping",
+            joinColumns = {@JoinColumn(name = "shop_order_id", referencedColumnName = "id")})
+    @MapKeyColumn(name = "cloth")
+    @Column(name = "quantity")
+    private Map<Cloth, Integer> clothes = new HashMap<>();
+    @ElementCollection
+    @CollectionTable(name = "order_shoes_mapping",
+            joinColumns = {@JoinColumn(name = "shop_order_id", referencedColumnName = "id")})
+    @MapKeyColumn(name = "shoes")
+    @Column(name = "quantity")
+    private Map<Shoes, Integer> shoes = new HashMap<>();
+    @ElementCollection
+    @CollectionTable(name = "order_equipment_mapping",
+            joinColumns = {@JoinColumn(name = "shop_order_id", referencedColumnName = "id")})
+    @MapKeyColumn(name = "equipment")
+    @Column(name = "quantity")
+    private Map<Equipment, Integer> equipment = new HashMap<>();
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus = OrderStatus.STARTED;
     @Transient
-    private List<Product> shoppingCart = new ArrayList<>();
+    private Map<Product, Integer> shoppingCart = new HashMap<>();
 
     public ShopOrder() {
     }
@@ -52,11 +66,11 @@ public class ShopOrder {
         this.customer = customer;
     }
 
-    public List<Product> getShoppingCart() {
+    public Map<Product, Integer> getShoppingCart() {
         return shoppingCart;
     }
 
-    public void setShoppingCart(List<Product> shoppingCart) {
+    public void setShoppingCart(Map<Product, Integer> shoppingCart) {
         this.shoppingCart = shoppingCart;
     }
 
@@ -68,41 +82,39 @@ public class ShopOrder {
         this.orderStatus = orderStatus;
     }
 
-    public List<Cloth> getClothes() {
+    public Map<Cloth, Integer> getClothes() {
         return clothes;
     }
 
-    public void setClothes(List<Cloth> clothes) {
+    public void setClothes(Map<Cloth, Integer> clothes) {
         this.clothes = clothes;
     }
 
-    public List<Shoes> getShoes() {
+    public Map<Shoes, Integer> getShoes() {
         return shoes;
     }
 
-    public void setShoes(List<Shoes> shoes) {
+    public void setShoes(Map<Shoes, Integer> shoes) {
         this.shoes = shoes;
     }
 
-    public List<Equipment> getEquipment() {
+    public Map<Equipment, Integer> getEquipment() {
         return equipment;
     }
 
-    public void setEquipment(List<Equipment> equipment) {
+    public void setEquipment(Map<Equipment, Integer> equipment) {
         this.equipment = equipment;
     }
 
-    public void addToCart(Product product, String prodType){
+    public void addToCart(Product product, Integer quantity, String prodType){
         if (prodType.equals("cloth")) {
-            this.clothes.add((Cloth)product);
-
+            this.clothes.put((Cloth)product,quantity);
         }
         if (prodType.equals("shoes")) {
-            this.shoes.add((Shoes)product);
-
+            this.shoes.put((Shoes)product, quantity);
         }
         if (prodType.equals("equipment")) {
-            this.equipment.add((Equipment) product);
+            this.equipment.put((Equipment)product, quantity);
         }
     }
 }

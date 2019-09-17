@@ -29,37 +29,51 @@
                     <img class="card-img-top img-fluid" src="<c:out value="${requestScope.product.imageUrl}"/>" alt="">
                     <div class="card-body">
                         <c:if test="${requestScope.type.equals('cloth')}">
-                            <h3 class="card-title"><c:out value="${requestScope.product.clothType}"/> <c:out value="${requestScope.product.mark}"/></h3>
+                            <h3 class="card-title"><c:out value="${requestScope.product.clothType}"/> <c:out
+                                    value="${requestScope.product.mark}"/></h3>
                         </c:if>
                         <c:if test="${requestScope.type.equals('shoes')}">
                             <h3 class="card-title">Shoes <c:out value="${requestScope.product.mark}"/></h3>
                         </c:if>
                         <c:if test="${requestScope.type.equals('equipment')}">
-                            <h3 class="card-title"><c:out value="${requestScope.product.name}"/> <c:out value="${requestScope.product.mark}"/></h3>
+                            <h3 class="card-title"><c:out value="${requestScope.product.name}"/> <c:out
+                                    value="${requestScope.product.mark}"/></h3>
                         </c:if>
 
                         <h4>$<c:out value="${requestScope.product.price}"/></h4>
                         <c:if test="${requestScope.type.equals('cloth')}">
-                        <p class="card-text"><c:out value="${requestScope.product.clothType}"/> <c:out value="${requestScope.product.mark}"/> <c:out value="${requestScope.product.model}"/>
-                            <c:out value="${requestScope.product.discipline}"/> Size: <c:out value="${requestScope.product.clothSize}"/></p>
+                            <p class="card-text"><c:out value="${requestScope.product.clothType}"/> <c:out
+                                    value="${requestScope.product.mark}"/> <c:out
+                                    value="${requestScope.product.model}"/>
+                                <c:out value="${requestScope.product.discipline}"/> Size: <c:out
+                                        value="${requestScope.product.clothSize}"/></p>
                         </c:if>
                         <c:if test="${requestScope.type.equals('shoes')}">
-                            <p class="card-text">Shoes <c:out value="${requestScope.product.mark}"/> <c:out value="${requestScope.product.model}"/>
-                                <c:out value="${requestScope.product.discipline}"/> Size: <c:out value="${requestScope.product.shoesSize}"/></p>
+                            <p class="card-text">Shoes <c:out value="${requestScope.product.mark}"/> <c:out
+                                    value="${requestScope.product.model}"/>
+                                <c:out value="${requestScope.product.discipline}"/> Size: <c:out
+                                        value="${requestScope.product.shoesSize}"/></p>
                         </c:if>
                         <c:if test="${requestScope.type.equals('equipment')}">
-                            <p class="card-text"><c:out value="${requestScope.product.name}"/> <c:out value="${requestScope.product.mark}"/> <c:out value="${requestScope.product.model}"/>
-                                <c:out value="${requestScope.product.discipline}"/> <c:out value="${requestScope.product.description}"/></p>
+                            <p class="card-text"><c:out value="${requestScope.product.name}"/> <c:out
+                                    value="${requestScope.product.mark}"/> <c:out
+                                    value="${requestScope.product.model}"/>
+                                <c:out value="${requestScope.product.discipline}"/> <c:out
+                                        value="${requestScope.product.description}"/></p>
                         </c:if>
                         <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9734;</span>
                         4.0 stars
                         <form method="post" action="/addToCart">
-                        <div id="buyDiv">
-                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-                            <input type="hidden" class="form-control" name="prodType" value="${requestScope.type}">
-                            <input type="hidden" class="form-control" name="prodId" value="${requestScope.product.id}">
-                        <br><button class="btn btn-success" type="submit" id="buy">Add to cart</button><br>
-                        </div>
+                            <div id="buyDiv">
+                                Quantity: <input type="number" name="quantity">
+                                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                                <input type="hidden" class="form-control" name="prodType" value="${requestScope.type}">
+                                <input type="hidden" class="form-control" name="prodId"
+                                       value="${requestScope.product.id}">
+                                <br>
+                                <button class="btn btn-success" type="submit" id="buy">Add to cart</button>
+                                <br>
+                            </div>
                         </form>
                     </div>
                 </div>

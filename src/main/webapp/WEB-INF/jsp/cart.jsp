@@ -33,35 +33,39 @@
                         <th scope="col">Mark</th>
                         <th scope="col">Model</th>
                         <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
                         <%--<th scope="col">Street</th>
-                        <th scope="col">City</th>
-                        <th scope="col"></th>--%>
+                            <th scope="col">City</th>
+                            <th scope="col"></th>--%>
                     </tr>
                     </thead>
                     <tbody>
-                    <c:forEach var="product" items="${requestScope.products}">
+                    <c:forEach var="product" items="${requestScope.productsSet}">
                         <tr>
                             <td>
-                                <c:out value="${product.id}"/>
+                                <c:out value="${product.key.id}"/>
                             </td>
                             <td>
-                                <c:out value="${product.mark}"/>
+                                <c:out value="${product.key.mark}"/>
                             </td>
                             <td>
-                                <c:out value="${product.model}"/>
+                                <c:out value="${product.key.model}"/>
                             </td>
                             <td>
-                                $<c:out value="${product.price}"/>
-                            </td>
-                            <%--<td>
-                                <c:out value="${user.address.street} ${user.address.houseNumber}"/>
+                                $<c:out value="${product.key.price}"/>
                             </td>
                             <td>
-                                <c:out value="${user.address.city}"/>
+                                <c:out value="${product.value}"/>
                             </td>
-                            <td>
-                                <a href="/delete/${user.id}">Delete</a>
-                            </td>--%>
+                                <%--<td>
+                                        <c:out value="${user.address.street} ${user.address.houseNumber}"/>
+                                    </td>
+                                    <td>
+                                        <c:out value="${user.address.city}"/>
+                                    </td>
+                                    <td>
+                                        <a href="/delete/${user.id}">Delete</a>
+                                    </td>--%>
 
                         </tr>
                     </c:forEach>

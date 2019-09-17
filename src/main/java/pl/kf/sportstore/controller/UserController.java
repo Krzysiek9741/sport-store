@@ -27,11 +27,6 @@ public class UserController {
         this.productService = productService;
     }
 
-
-
-
-
-
     @GetMapping("/newProduct")
     public String addNewProduct(){
         return "addNewProduct";
@@ -54,16 +49,10 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String register(@RequestParam Map<String, String> userData, Model model){
-        /*Address address = new Address(userData.get("street"),Integer.parseInt(userData.get("houseNumber")),
-                Integer.parseInt(userData.get("zipCode")), userData.get("city"));
-        User user = new User(userData.get("username"), userData.get("password"), userData.get("firstName"),
-                userData.get("lastName"), address);*/
+    public String register(User user, Address address){
 
-        userService.createNewUser(userData.get("username"), userData.get("password"), userData.get("firstName"),
-                userData.get("lastName"), userData.get("street"),Integer.parseInt(userData.get("houseNumber")),
-                Integer.parseInt(userData.get("zipCode")), userData.get("city"));
-
+        user.setAddress(address);
+        userService.createNewUser(user);
         return "redirect:/login";
     }
 

@@ -19,6 +19,8 @@ import pl.kf.sportstore.service.UserService;
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @Controller
 public class ProductController {
@@ -91,13 +93,13 @@ public class ProductController {
     }
 
     @PostMapping("/addToCart")
-    public String addToCart(@RequestParam Long prodId, String prodType, Principal principal){
-        ShopOrder shopOrder = shopOrderService.getShopOrderByCustomerAnsStatus(
+    public String addToCart(@RequestParam Long prodId, String prodType, Integer quantity, Principal principal){
+        ShopOrder shopOrder = shopOrderService.getShopOrderByCustomerAndStatus(
                 userService.getUserByUsername(principal.getName()), OrderStatus.STARTED);
         if (shopOrder == null){
             shopOrder = new ShopOrder(userService.getUserByUsername(principal.getName()));
         }
-        shopOrder.addToCart(productService.getProductById(prodId, prodType), prodType);
+        shopOrder.addToCart(productService.getProductById(prodId, prodType),quantity, prodType );
         shopOrderService.saveOrder(shopOrder);
 
         return "redirect:/addedToCart";
@@ -110,12 +112,17 @@ public class ProductController {
 
     @GetMapping("/myCart")
     public String productsInCart(Model model, Principal principal){
-        ShopOrder shopOrder = shopOrderService.getShopOrderByCustomerAnsStatus(
+        ShopOrder shopOrder = shopOrderService.getShopOrderByCustomerAndStatus(
                 userService.getUserByUsername(principal.getName()), OrderStatus.STARTED);
 
-        List<Product> products = shopOrderService.getAllProductsFromCart(shopOrder);
+        //List<Product> products = shopOrderService.getAllProductsFromCart(shopOrder);
+        Map<Product, Integer> productsMap = shopOrderService.getAllProductsFromCart(shopOrder);
+        Set<Map.Entry<Product, Integer>> productsSet = productsMap.entrySet();
 
-        model.addAttribute("products", products);
+        model.addAttribute("productsMap", productsMap);
+        model.addAttribute("productsSet", productsSet);
+
+
 
         return "cart";
     }

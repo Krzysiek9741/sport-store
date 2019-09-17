@@ -44,8 +44,8 @@ public class ProductService {
         shoesRepository.save(shoes);
     }
 
-    public void addNewEquipment(String mark, String model, Discipline discipline, Double price, String imageUrl, Integer quantityInStock,
-                                String name, String description) {
+    public void addNewEquipment(String mark, String model, Discipline discipline, Double price, String imageUrl,
+                                Integer quantityInStock, String name, String description) {
         Equipment equipment = new Equipment(mark, model, discipline, price, imageUrl, quantityInStock, name, description);
 
         equipmentRepository.save(equipment);

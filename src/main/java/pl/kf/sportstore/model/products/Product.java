@@ -20,7 +20,8 @@ public abstract class Product {
     public Product() {
     }
 
-    public Product(String mark, String model, Discipline discipline, Double price, String imageUrl, Integer quantityInStock) {
+    public Product(String mark, String model, Discipline discipline, Double price, String imageUrl,
+                   Integer quantityInStock) {
         this.mark = mark;
         this.model = model;
         this.discipline = discipline;

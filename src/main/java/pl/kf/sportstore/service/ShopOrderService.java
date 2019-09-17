@@ -10,7 +10,9 @@ import pl.kf.sportstore.repository.ShoesRepository;
 import pl.kf.sportstore.repository.ShopOrderRepository;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class ShopOrderService {
@@ -22,7 +24,7 @@ public class ShopOrderService {
         this.shopOrderRepository = shopOrderRepository;
     }
 
-    public ShopOrder getShopOrderByCustomerAnsStatus(User customer, OrderStatus orderStatus){
+    public ShopOrder getShopOrderByCustomerAndStatus(User customer, OrderStatus orderStatus){
         return shopOrderRepository.findShopOrderByCustomerAndOrderStatus(customer, orderStatus);
     }
 
@@ -30,12 +32,22 @@ public class ShopOrderService {
         shopOrderRepository.save(shopOrder);
     }
 
-    public List<Product> getAllProductsFromCart(ShopOrder shopOrder){
+    /*public List<Product> getAllProductsFromCart(ShopOrder shopOrder){
         List<Product> products = new ArrayList<>();
 
         products.addAll(shopOrder.getClothes());
         products.addAll(shopOrder.getShoes());
         products.addAll(shopOrder.getEquipment());
+
+        return products;
+    }*/
+
+    public Map<Product, Integer> getAllProductsFromCart(ShopOrder shopOrder){
+        Map<Product, Integer> products = new HashMap<>();
+
+        products.putAll(shopOrder.getClothes());
+        products.putAll(shopOrder.getShoes());
+        products.putAll(shopOrder.getEquipment());
 
         return products;
     }

@@ -23,19 +23,17 @@ public class UserService implements UserDetailsService {
         this.addressRepository = addressRepository;
     }
 
-    public void createNewUser(String username, String password, String firstName, String lastName, String street,
-                              Integer houseNumber, Integer zipCode, String city){
-
-        Address address = addressRepository.findAddressByCityAndStreetAndHouseNumber(city, street, houseNumber);
-        if (address == null){
-            address = new Address(street, houseNumber, zipCode, city);
-            addressRepository.save(address);
+    public void createNewUser(User user){
+        Address addressFromForm = user.getAddress();
+        Address addressInDB = addressRepository.findAddressByCityAndStreetAndHouseNumber(addressFromForm.getCity(),
+                addressFromForm.getStreet(), addressFromForm.getHouseNumber());
+        if (addressInDB == null){
+            addressInDB = addressFromForm;
+            addressRepository.save(addressInDB);
         }
-            User user = new User(username, password, firstName, lastName, address);
+        user.setAddress(addressInDB);
         user.addNewRole("USER");
-        //user.addNewRole("ADMIN");
         userRepository.save(user);
-
     }
 
     public User getUserById(Long id){

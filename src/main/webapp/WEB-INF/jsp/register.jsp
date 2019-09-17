@@ -16,81 +16,82 @@
 <div class="bg">
     <jsp:include page="menu.jsp"></jsp:include>
     <div class="container" style="text-align: center">
-<div id="reg">
-        <form method="POST" action="${path}/register">
-            <p style="color: red">${error}</p>
-            <p style="color: green">${message}</p>
-            <br>
-            <div class="form-group row">
-                <div class="col-xs-2">
-                    <label for="username" class="lab2">Username</label>
+        <div id="reg">
+            <form method="POST" action="${path}/register">
+                <p style="color: red">${error}</p>
+                <p style="color: green">${message}</p>
+                <br>
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <label for="username" class="lab2">Username</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                    </div>
                 </div>
-                <div class="col-xs-4">
-                    <input type="text" class="form-control" id="username" placeholder="Username" name="username">
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <label for="password" class="lab2">Password</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-2">
-                    <label for="password" class="lab2">Password</label>
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <label for="firstName" class="lab2">First name</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName">
+                    </div>
                 </div>
-                <div class="col-xs-4">
-                    <input type="password" class="form-control" id="password" placeholder="Password" name="password">
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <label for="lastName" class="lab2">Last name</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-2">
-                    <label for="firstName" class="lab2">First name</label>
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <label for="street" class="lab2">Street</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="street" placeholder="Street" name="street">
+                    </div>
                 </div>
-                <div class="col-xs-4">
-                    <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName">
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <label for="houseNumber" class="lab2">House number</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="houseNumber" placeholder="House number"
+                               name="houseNumber">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-2">
-                    <label for="lastName" class="lab2">Last name</label>
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <label for="zipCode" class="lab2">Zip code</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="zipCode" placeholder="Zip code" name="zipCode">
+                    </div>
                 </div>
-                <div class="col-xs-4">
-                    <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName">
+                <div class="form-group row">
+                    <div class="col-xs-2">
+                        <label for="city" class="lab2">City</label>
+                    </div>
+                    <div class="col-xs-4">
+                        <input type="text" class="form-control" id="city" placeholder="City" name="city">
+                    </div>
                 </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-2">
-                    <label for="street" class="lab2">Street</label>
-                </div>
-                <div class="col-xs-4">
-                    <input type="text" class="form-control" id="street" placeholder="Street" name="street">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-2">
-                    <label for="houseNumber" class="lab2">House number</label>
-                </div>
-                <div class="col-xs-4">
-                    <input type="text" class="form-control" id="houseNumber" placeholder="House number"
-                           name="houseNumber">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-2">
-                    <label for="zipCode" class="lab2">Zip code</label>
-                </div>
-                <div class="col-xs-4">
-                    <input type="text" class="form-control" id="zipCode" placeholder="Zip code" name="zipCode">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-xs-2">
-                    <label for="city" class="lab2">City</label>
-                </div>
-                <div class="col-xs-4">
-                    <input type="text" class="form-control" id="city" placeholder="City" name="city">
-                </div>
-            </div>
 
-            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
-            <button type="submit" class="btn btn-primary" style="font-size: 20px">Register</button>
-        </form>
-</div>
+
+                <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}">
+                <button type="submit" class="btn btn-primary" style="font-size: 20px">Register</button>
+            </form>
+        </div>
 
     </div>
     <jsp:include page="footer.jsp"></jsp:include>
